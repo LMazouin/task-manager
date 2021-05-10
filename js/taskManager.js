@@ -4,28 +4,28 @@
 class TaskManager {
 	/**
    * initializes a table containing the tasks and the current id
-   * @param{number} currentId - the id that keeps track of the current task
+   * @param{number} currentId - id that keeps track of the tasks
    */
 	constructor(currentId = 0) {
 		this._tasks = [];
 		this._currentId = currentId;
 	}
 	/**
-   * returns the table containing the tasks
+   * returns a table containing the tasks
    * @return{array}
    */
 	get tasks() {
 		return this._tasks;
 	}
 	/**
-   * returns the current id
+   * returns the id of the last task added
    * @return{number}
    */
 	get currentId() {
 		return this._currentId;
 	}
 	/**
-   * adds a task to the table containg the tasks
+   * adds a task to the table containing the tasks
    * @param{object} task
    */
 	addTask(name, description, assignedTo, dueDate, status = 'TODO') {
@@ -40,6 +40,16 @@ class TaskManager {
 		};
 		this._tasks.push(task);
 	}
+	/**
+   * returns the HTML code of a task card
+   * @param{string} name 
+   * @param{string} description 
+   * @param{string} assignedTo 
+   * @param{string} dueDate
+   * @param{string} status
+   * @param{number} id
+   * @return{string} html
+   */
 	addTaskHTML(name, description, assignedTo, dueDate, status, id) {
 		const html = `<article class="card shadow mb-3">
                     <header class="card-header d-flex justify-content-between">
@@ -74,6 +84,9 @@ class TaskManager {
                   </article>`;
 		return html;
 	}
+	/**
+   * displays all the tasks on the page
+   */
 	render() {
 		const tasksListHTML = [];
 		this._tasks.forEach((task) => {
@@ -85,5 +98,19 @@ class TaskManager {
 		});
 		const tasksHTML = tasksListHTML.join('\n');
 		document.getElementById('task-cards-section').innerHTML = tasksHTML;
+	}
+	/**
+   * returns a task by its id
+   * @param{number} taskId
+   * @returns{object}
+   */
+	getTaskById(taskId) {
+		let foundTask;
+		this._tasks.forEach((task) => {
+			if (taskId === task.id) {
+				foundTask = task;
+			}
+		});
+		return foundTask;
 	}
 }
