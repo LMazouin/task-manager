@@ -113,4 +113,13 @@ class TaskManager {
 		});
 		return foundTask;
 	}
+	/**
+   * saves the tasks to the local storage
+   */
+	save() {
+		const tasksJSON = JSON.stringify(this._tasks);
+		localStorage.setItem('tasks', tasksJSON);
+		const currentId = this._currentId.toString();
+		localStorage.setItem('currentId', currentId);
+	}
 }

@@ -110,11 +110,8 @@ form.addEventListener('submit', (event) => {
 		console.log(description);
 
 		taskManager.addTask(name, description, assignedTo, dueDate);
-  
-		console.log(taskManager.tasks);
-
 		taskManager.render();
-
+		taskManager.save();
 	}
 
 });
@@ -128,9 +125,10 @@ tasksList.addEventListener('click', (event) => {
 		if (cls === 'done-button') {
 			const taskId = parseInt(event.target.parentElement.dataset.taskId);
 			console.log(`The DROPDOWN BUTTON of task ${taskId} has been clicked!`);
-      const task = taskManager.getTaskById(taskId);
-      task.status = 'DONE';
-      taskManager.render();
+			const task = taskManager.getTaskById(taskId);
+			task.status = 'DONE';
+			taskManager.render();
+			taskManager.save();
 		}
 	});
   
