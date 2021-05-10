@@ -135,15 +135,3 @@ tasksList.addEventListener('click', (event) => {
   
 });
 
-// statusButtons.forEach((statusButton) => {
-// 	statusButton.addEventListener('click', (event) => {
-// 		event.target.classList.forEach((cls) => {
-// 			if (cls === 'done-button') {
-// 				console.log(cls);
-// 			}
-// 		});
-// 		console.log(event.target.parentElement);
-// 		const taskId = event.target.parentElement.dataset.taskId;
-// 		console.log(`The status DONE of task ${taskId} has been clicked!`);
-// 	});
-// });
