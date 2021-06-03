@@ -1,0 +1,26 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "A web-based task manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LMazouin/task-manager.git"
+  },
+  "author": "Laurent Mazouin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LMazouin/task-manager/issues"
+  },
+  "homepage": "https://github.com/LMazouin/task-manager#readme",
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.4.0"
+  }
+}
