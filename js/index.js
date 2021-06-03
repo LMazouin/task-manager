@@ -67,6 +67,8 @@ const displayErrorMessage = (inputList) => {
 
 // create a task manager object
 const taskManager = new TaskManager();
+taskManager.load();
+taskManager.render();
 
 form.addEventListener('submit', (event) => {
 	event.preventDefault();

@@ -1,3 +1,5 @@
+import React from('react');
+import ReactDOM from('react-dom');
 /**
  * represents a task manager
  */
@@ -121,5 +123,18 @@ class TaskManager {
 		localStorage.setItem('tasks', tasksJSON);
 		const currentId = this._currentId.toString();
 		localStorage.setItem('currentId', currentId);
+	}
+	/**
+   * loads the tasks in the local storage to the page upon refreshing
+   */
+	load() {
+		if (localStorage.getItem('tasks') !== null) {
+			const tasksJSON = localStorage.getItem('tasks');
+			this._tasks = JSON.parse(tasksJSON);
+		}
+		if (localStorage.getItem('currentId') !== null) {
+			const currentId = localStorage.getItem('currentId');
+			this._currentId = parseInt(currentId);
+		}
 	}
 }
